@@ -8,10 +8,413 @@
 </head>
 <body>
   <div class="header"></div>
-  <div class="profile"></div>
-  <div class="future-games"></div>
-  <div class="now-games"></div>
-  <div class="last-games"></div>
+  <div class="profile">
+    <div class="fixed-size">
+      <div class="profile-content">
+        <div class="profile-content__info">
+          <div class="profile-content__info-title">Ваши результаты</div>
+          <div class="profile-content__info-data">
+            <div class="profile-content__info-data-user">
+              <img class="profile-content__info-data-user-avatar" src="assets/images/avatar.png" alt="avatar">
+              <div class="profile-content__info-data-user-results">
+                <div class="profile-content__info-data-user-results-item">Выиграно на сумму: 0 АМЗ</div>
+                <div class="profile-content__info-data-user-results-item">Выиграно предметов: 0 шт.</div>
+                <div class="profile-content__info-data-user-results-item">Победных игр: 0</div>
+              </div>
+            </div>
+            <div class="profile-content__info-data-menu">
+              <div class="profile-content__info-data-menu-item">Ваш инвентарь</div>
+              <div class="profile-content__info-data-menu-item">Ваша история игр</div>
+              <div class="profile-content__info-data-menu-item">Что такое коинфлип?</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-content__statistics">
+          <div class="profile-content__statistics-item">
+            <div class="profile-content__statistics-item-number">13 000</div>
+            <div class="profile-content__statistics-item-caption">Итоговая сумма (Амазингов)</div>
+          </div>
+          <div class="profile-content__statistics-item">
+            <div class="profile-content__statistics-item-number">137</div>
+            <div class="profile-content__statistics-item-caption">Количество предметов</div>
+          </div>
+          <div class="profile-content__statistics-item">
+            <div class="profile-content__statistics-item-number">1</div>
+            <div class="profile-content__statistics-item-caption">Активных игр</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-separator"></div>
+  </div>
+  <div class="future-games">
+    <div class="fixed-size">
+      <div class="future-games-content">
+        <div class="future-games-content__new-game">
+          <div class="future-games-content__new-game-caption"><span>+</span>Создать новую игру</div>
+        </div>
+        <div class="future-games-content__table table-games">
+          <div class="table-games__title">Игры в ожидании</div>
+          <div class="table-games__data">
+            <div class="table-games__data-captions">
+              <div class="table-games__data-captions-item players-item">Участники</div>
+              <div class="table-games__data-captions-item objects-item">Предметы в игре</div>
+              <div class="table-games__data-captions-item winner-item">Победная сторона</div>
+              <div class="table-games__data-captions-item cost-item">Сумма предметов</div>
+            </div>
+            <div class="table-games__data-item item-1">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player placeholder">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">50 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+                <div class="table-games__data-item-buttons-play">
+                  <div class="table-games__data-item-buttons-play-icon"></div>
+                  <div class="table-games__data-item-buttons-play-caption">Играть</div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-2">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player placeholder">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+                <div class="table-games__data-item-objects-element objects-item__yellow"></div>
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+                <div class="table-games__data-item-objects-rest">+7</div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">1150 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+                <div class="table-games__data-item-buttons-play">
+                  <div class="table-games__data-item-buttons-play-icon"></div>
+                  <div class="table-games__data-item-buttons-play-caption">Играть</div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-3">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player placeholder">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__yellow"></div>
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">800 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+                <div class="table-games__data-item-buttons-play">
+                  <div class="table-games__data-item-buttons-play-icon"></div>
+                  <div class="table-games__data-item-buttons-play-caption">Играть</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="now-games">
+    <div class="fixed-size">
+      <div class="now-games-content">
+        <div class="now-games-content__table table-games">
+          <div class="table-games__title">Сейчас играют</div>
+          <div class="table-games__data">
+            <div class="table-games__data-captions">
+              <div class="table-games__data-captions-item players-item">Участники</div>
+              <div class="table-games__data-captions-item objects-item">Предметы в игре</div>
+              <div class="table-games__data-captions-item winner-item">Победная сторона</div>
+              <div class="table-games__data-captions-item cost-item">Сумма предметов</div>
+            </div>
+            <div class="table-games__data-item item-1">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+                <div class="table-games__data-item-objects-element objects-item__yellow"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">30 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-2">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">350 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-3">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">100 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-4">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__yellow"></div>
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">40 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="last-games">
+    <div class="fixed-size">
+      <div class="last-games-content">
+        <div class="last-games-content__table table-games">
+          <div class="table-games__title">Прошедшие игры</div>
+          <div class="table-games__data">
+            <div class="table-games__data-captions">
+              <div class="table-games__data-captions-item players-item">Участники</div>
+              <div class="table-games__data-captions-item objects-item">Предметы в игре</div>
+              <div class="table-games__data-captions-item winner-item">Победная сторона</div>
+              <div class="table-games__data-captions-item cost-item">Сумма предметов</div>
+            </div>
+            <div class="table-games__data-item item-1">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result silver-winner"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">500 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-2">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result gold-winner"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">120 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-3">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__grey"></div>
+                <div class="table-games__data-item-objects-element objects-item__blue"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result gold-winner"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">800 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-games__data-item item-4">
+              <div class="table-games__data-item-players players-item">
+                <div class="table-games__data-item-players-avatar first-player">
+                  <div class="table-games__data-item-players-avatar-badge gold-badge"></div>
+                </div>
+                <div class="table-games__data-item-players-caption">Против</div>
+                <div class="table-games__data-item-players-avatar second-player">
+                  <div class="table-games__data-item-players-avatar-badge silver-badge"></div>
+                </div>
+              </div>
+              <div class="table-games__data-item-objects objects-item">
+                <div class="table-games__data-item-objects-element objects-item__yellow"></div>
+                <div class="table-games__data-item-objects-element objects-item__red"></div>
+                <div class="table-games__data-item-objects-element objects-item__green"></div>
+              </div>
+              <div class="table-games__data-item-winner winner-item">
+                <div class="table-games__data-item-winner-result silver-winner"></div>
+              </div>
+              <div class="table-games__data-item-cost cost-item">
+                <div class="table-games__data-item-cost-itog">650 Amz</div>
+              </div>
+              <div class="table-games__data-item-buttons">
+                <div class="table-games__data-item-buttons-watch">
+                  <div class="table-games__data-item-buttons-watch-icon"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="last-games-content__show">
+          <div class="last-games-content__show-btn">
+            <div class="last-games-content__show-btn-icon"></div>
+          </div>
+          <div class="last-games-content__show-caption">Показать ранние игры</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="footer"></div>
 </body>
 </html>
