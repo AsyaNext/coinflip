@@ -588,12 +588,10 @@
     }
   }
 }
-
 .footer {
   width: 100%;
   height: 362px;
 }
-
 .modal {
   position: fixed;
   top: 0;
@@ -606,7 +604,6 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, rgba(235, 62, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
-
   .modal-dialog {
     position: relative;
     width: 70%;
@@ -622,7 +619,6 @@
     &::-webkit-scrollbar {
       width: 0;
     }
-
     .modal-dialog__red-shadow {
       height: 50%;
       width: 50%;
