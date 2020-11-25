@@ -601,8 +601,8 @@
   right: 0;
   bottom: 0;
   z-index: 5;
-  //display: flex;
-  display: none;
+  display: flex;
+  //display: none;
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, rgba(235, 62, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
@@ -618,6 +618,30 @@
     background: url("images/modal-back.png") 100%, linear-gradient(147.38deg, #121212 0%, #1D1D1D 0.01%, #0D0D0D 30.73%, #0D0D0D 50.52%, #0D0D0D 68.75%, #1D1D1D 100%);
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .modal-dialog__red-shadow {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(50% 50% at 0% 50%, #EB402F 0%, rgba(235, 64, 47, 0) 100%);
+      opacity: 0.4;
+    }
+    .modal-dialog__white-shadow {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: radial-gradient(50% 50% at 0% 50%, #F2F2F2 0%, rgba(242, 242, 242, 0) 100%);
+      opacity: 0.2;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
 
     .modal-dialog__close {
       position: absolute;
@@ -734,8 +758,7 @@
     .modal-dialog__content {
       padding: 30px 65px 65px 65px;
       display: grid;
-      grid-template-rows: 1fr auto;
-      gap: 15px;
+      grid-template-rows: 50px auto;
 
       .modal-dialog__content-title {
         display: flex;
