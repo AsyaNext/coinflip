@@ -101,19 +101,13 @@ body {
   top: 1px;
 }
 .profile .profile-content .profile-content__statistics {
+  position: relative;
   margin-top: 38px;
-  display: grid;
-  grid-template-rows: 131px;
-  grid-template-columns: 182px 150px 135px;
-  gap: 16px;
-  overflow-x: auto;
-}
-.profile .profile-content .profile-content__statistics::-webkit-scrollbar {
-  width: 0;
+  overflow: hidden;
 }
 .profile .profile-content .profile-content__statistics .profile-content__statistics-overlay {
   position: absolute;
-  bottom: 15px;
+  top: 0;
   right: 0;
   display: none;
   width: 120px;
@@ -121,17 +115,27 @@ body {
   background: linear-gradient(90deg, #0C0C0C 0%, rgba(15, 15, 15, 0) 100%);
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
-.profile .profile-content .profile-content__statistics .profile-content__statistics-item {
+.profile .profile-content .profile-content__statistics .profile-content__statistics-items {
+  display: grid;
+  grid-template-rows: 131px;
+  grid-template-columns: 182px 150px 135px;
+  gap: 16px;
+  overflow-x: auto;
+}
+.profile .profile-content .profile-content__statistics .profile-content__statistics-items::-webkit-scrollbar {
+  width: 0;
+}
+.profile .profile-content .profile-content__statistics .profile-content__statistics-items .profile-content__statistics-item {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
   padding: 24px 32px;
 }
-.profile .profile-content .profile-content__statistics .profile-content__statistics-item .profile-content__statistics-item-number {
+.profile .profile-content .profile-content__statistics .profile-content__statistics-items .profile-content__statistics-item .profile-content__statistics-item-number {
   font-weight: bold;
   font-size: 36px;
   line-height: 44px;
 }
-.profile .profile-content .profile-content__statistics .profile-content__statistics-item .profile-content__statistics-item-caption {
+.profile .profile-content .profile-content__statistics .profile-content__statistics-items .profile-content__statistics-item .profile-content__statistics-item-caption {
   font-weight: normal;
   line-height: 19px;
   opacity: 0.65;
