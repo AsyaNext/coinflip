@@ -21,7 +21,6 @@ body {
   padding: 0 30px;
   margin: 0 auto;
 }
-
 @mixin transform($property) {
   -o-transform: $property;
   -ms-transform: $property;

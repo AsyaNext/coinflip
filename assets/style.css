@@ -396,6 +396,7 @@ body {
   border-radius: 3px;
   box-sizing: content-box;
   cursor: pointer;
+  user-select: none;
   -o-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;

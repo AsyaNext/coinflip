@@ -356,6 +356,7 @@
           border-radius: 3px;
           box-sizing: content-box;
           cursor: pointer;
+          user-select: none;
           @include transition(all 0.3s ease);
           &:hover {
             @include transform(scale(1.1));
