@@ -294,6 +294,8 @@ body {
   left: 0;
   width: 50%;
   height: 100%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
   z-index: 3;
   background-color: #232323;
   animation: mask-left 120s steps(1, end) forwards;
@@ -305,6 +307,8 @@ body {
   right: 0;
   width: 50%;
   height: 100%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
   z-index: 3;
   background-color: #F3502F;
   animation: mask-right 120s steps(1, end) forwards;
