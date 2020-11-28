@@ -297,6 +297,9 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #232323;
+  -o-animation: mask-left 120s steps(1, end) forwards;
+  -moz-animation: mask-left 120s steps(1, end) forwards;
+  -webkit-animation: mask-left 120s steps(1, end) forwards;
   animation: mask-left 120s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer:after {
@@ -308,6 +311,9 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #F3502F;
+  -o-animation: mask-right 120s steps(1, end) forwards;
+  -moz-animation: mask-right 120s steps(1, end) forwards;
+  -webkit-animation: mask-right 120s steps(1, end) forwards;
   animation: mask-right 120s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body {
@@ -326,6 +332,9 @@ body {
   width: 100%;
   height: 100%;
   background-color: #232323;
+  -o-animation: line 120s linear forwards;
+  -moz-animation: line 120s linear forwards;
+  -webkit-animation: line 120s linear forwards;
   animation: line 120s linear forwards;
   overflow: hidden;
   z-index: 2;
@@ -368,6 +377,7 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
   -o-transition: all 0.3s ease;
+  -ms-transform: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -404,6 +414,7 @@ body {
   cursor: pointer;
   user-select: none;
   -o-transition: all 0.3s ease;
+  -ms-transform: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -443,6 +454,7 @@ body {
   cursor: pointer;
   user-select: none;
   -o-transition: all 0.3s ease;
+  -ms-transform: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -569,6 +581,7 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
   -o-transition: all 0.3s ease;
+  -ms-transform: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;

@@ -262,7 +262,7 @@
           height: 100%;
           z-index: 3;
           background-color: #232323;
-          animation: mask-left 120s steps(1, end) forwards;
+          @include animation( mask-left 120s steps(1, end) forwards);
         }
         &:after {
           content: '';
@@ -273,7 +273,7 @@
           height: 100%;
           z-index: 3;
           background-color: #F3502F;
-          animation: mask-right 120s steps(1, end) forwards;
+          @include animation( mask-right 120s steps(1, end) forwards);
         }
         .table-games__data-item-timer-body {
           position: relative;
@@ -291,7 +291,7 @@
           width: 100%;
           height: 100%;
           background-color: #232323;
-          animation: line 120s linear forwards;
+          @include animation( line 120s linear forwards);
           overflow: hidden;
           z-index: 2;
           &:after {

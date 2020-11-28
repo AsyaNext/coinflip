@@ -30,7 +30,15 @@ body {
 }
 @mixin transition($property) {
   -o-transition: $property;
+  -ms-transform: $property;
   -moz-transition: $property;
   -webkit-transition: $property;
   transition: $property;
+}
+
+@mixin animation($property) {
+  -o-animation: $property;
+  -moz-animation: $property;
+  -webkit-animation: $property;
+  animation: $property;
 }
