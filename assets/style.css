@@ -73,11 +73,12 @@ body {
   border-radius: 50%;
 }
 .profile .profile-content .profile-content__info .profile-content__info-data .profile-content__info-data-user {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 40px;
+  row-gap: 8px;
 }
 .profile .profile-content .profile-content__info .profile-content__info-data .profile-content__info-data-user .profile-content__info-data-user-results {
-  margin-right: 40px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   gap: 8px;
@@ -298,10 +299,10 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #232323;
-  -o-animation: mask-left 120s steps(1, end) forwards;
-  -moz-animation: mask-left 120s steps(1, end) forwards;
-  -webkit-animation: mask-left 120s steps(1, end) forwards;
-  animation: mask-left 120s steps(1, end) forwards;
+  -o-animation: mask-left 121s steps(1, end) forwards;
+  -moz-animation: mask-left 121s steps(1, end) forwards;
+  -webkit-animation: mask-left 121s steps(1, end) forwards;
+  animation: mask-left 121s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer:after {
   content: "";
@@ -312,10 +313,10 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #F3502F;
-  -o-animation: mask-right 120s steps(1, end) forwards;
-  -moz-animation: mask-right 120s steps(1, end) forwards;
-  -webkit-animation: mask-right 120s steps(1, end) forwards;
-  animation: mask-right 120s steps(1, end) forwards;
+  -o-animation: mask-right 121s steps(1, end) forwards;
+  -moz-animation: mask-right 121s steps(1, end) forwards;
+  -webkit-animation: mask-right 121s steps(1, end) forwards;
+  animation: mask-right 121s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body {
   position: relative;
@@ -324,7 +325,22 @@ body {
   border-radius: 50%;
   background-color: #0B0B0B;
   overflow: hidden;
+  text-align: center;
   z-index: 4;
+}
+.table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter {
+  -o-animation: counter 121s steps(120, end) forwards;
+  -moz-animation: counter 121s steps(120, end) forwards;
+  -webkit-animation: counter 121s steps(120, end) forwards;
+  animation: counter 121s steps(120, end) forwards;
+}
+.table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter div {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 42px;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-line {
   position: absolute;
@@ -334,10 +350,10 @@ body {
   height: 100%;
   border-radius: 50%;
   background-color: #232323;
-  -o-animation: line 120s linear forwards;
-  -moz-animation: line 120s linear forwards;
-  -webkit-animation: line 120s linear forwards;
-  animation: line 120s linear forwards;
+  -o-animation: line 121s linear forwards;
+  -moz-animation: line 121s linear forwards;
+  -webkit-animation: line 121s linear forwards;
+  animation: line 121s linear forwards;
   overflow: hidden;
   z-index: 2;
 }
@@ -632,10 +648,9 @@ body {
   right: 0;
   bottom: 0;
   z-index: 5;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(235, 62, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
 }
 .modal .modal-dialog {
   position: relative;
@@ -644,7 +659,7 @@ body {
   height: 95%;
   max-height: 1000px;
   display: grid;
-  grid-template-rows: 310px minmax(200px, auto);
+  grid-template-rows: auto minmax(200px, auto);
   background: url("images/modal-back.png") 100%, linear-gradient(147.38deg, #121212 0%, #1D1D1D 0.01%, #0D0D0D 30.73%, #0D0D0D 50.52%, #0D0D0D 68.75%, #1D1D1D 100%);
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -676,10 +691,20 @@ body {
 .modal .modal-dialog .modal-dialog__header {
   padding: 30px 65px;
   display: grid;
-  grid-template-columns: 1fr minmax(150px, 250px) 1fr;
+  grid-template-columns: 1fr auto 1fr;
   gap: 15px;
   align-items: center;
   justify-content: space-between;
+}
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-info {
+  padding: 30px 0;
+}
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-info .gold-winner {
+  width: 60px;
+  height: 60px;
+  background-image: url("images/gold-winner.png");
+  background-size: 100%;
+  margin: 0 auto;
 }
 .modal .modal-dialog .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item {
   display: flex;
@@ -700,7 +725,7 @@ body {
 .modal .modal-dialog .modal-dialog__header .modal-dialog__header-avatar {
   justify-self: center;
   width: 250px;
-  height: 100%;
+  height: 250px;
   border-radius: 50%;
   border: 5px solid #515151;
   box-sizing: border-box;
@@ -714,14 +739,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder {
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-identify {
   position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-image: url("images/modal-placeholder.png");
+  background-image: url("images/pending-identify.png");
 }
-.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder .modal-dialog__header-pending-timer {
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-identify .modal-dialog__header-pending-placeholder {
+  width: 100%;
+  height: 100%;
+  background-image: url("images/pending-placeholder.png");
+  background-size: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-identify .modal-dialog__header-pending-placeholder .modal-dialog__header-pending-timer {
   position: absolute;
   left: 30%;
   bottom: -20px;
@@ -736,7 +769,7 @@ body {
   font-size: 15px;
   color: #CCCCCC;
 }
-.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder .modal-dialog__header-pending-timer span {
+.modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-identify .modal-dialog__header-pending-placeholder .modal-dialog__header-pending-timer span {
   position: relative;
   top: -3px;
   text-transform: uppercase;
@@ -859,25 +892,35 @@ body {
   background-image: url("images/icons/icon-cost.svg");
 }
 
+.pending-game {
+  background: linear-gradient(180deg, rgba(72, 235, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
+}
+
+@keyframes counter {
+  100% {
+    transform: translateY(-5040px);
+  }
+}
 @keyframes line {
   100% {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
+    opacity: 0;
   }
 }
 @keyframes mask-left {
   0% {
-    visibility: visible;
+    visibility: hidden;
   }
   50%, 100% {
-    visibility: hidden;
+    visibility: visible;
   }
 }
 @keyframes mask-right {
   0% {
-    visibility: hidden;
+    visibility: visible;
   }
   50%, 100% {
-    visibility: visible;
+    visibility: hidden;
   }
 }
 @media (max-height: 670px) {
@@ -919,8 +962,8 @@ body {
 
   .table-games__data {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, auto));
-    column-gap: 24px;
+    grid-template-columns: 1fr;
+    justify-content: center;
   }
   .table-games__data .table-games__data-captions {
     display: none !important;
@@ -928,10 +971,21 @@ body {
   .table-games__data .table-games__data-item {
     padding: 27px 24px !important;
     border: none !important;
-    grid-template-columns: minmax(130px, 189px) minmax(100px, auto) !important;
+    justify-content: center;
+    grid-template-columns: minmax(130px, 189px) minmax(100px, 411px) !important;
     grid-template-rows: repeat(3, 1fr);
     column-gap: 16px;
     row-gap: 24px;
+  }
+  .table-games__data .table-games__data-item:nth-child(odd) {
+    background-color: #111111;
+    background-size: 100vw;
+  }
+  .table-games__data .table-games__data-item:nth-child(odd) .table-games__data-item-timer-body {
+    background-color: #111111 !important;
+  }
+  .table-games__data .table-games__data-item .table-games__data-item-cost {
+    height: auto !important;
   }
   .table-games__data .table-games__data-item .winner-item {
     text-align: right;
@@ -944,6 +998,9 @@ body {
   }
   .table-games__data .table-games__data-item .cost-item {
     padding-left: 0 !important;
+  }
+  .table-games__data .table-games__data-item .table-games__data-item-buttons-play-caption {
+    display: inline;
   }
 
   .mobile-item {
@@ -965,14 +1022,6 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .table-games__data-item:nth-child(odd) {
-    background-color: #111111;
-    background-size: 100vw;
-  }
-  .table-games__data-item:nth-child(odd) .table-games__data-item-timer-body {
-    background-color: #111111 !important;
-  }
-
   .modal-dialog {
     width: 90% !important;
     grid-template-rows: auto minmax(200px, auto) !important;
@@ -998,17 +1047,26 @@ body {
     order: 1;
   }
 }
+@media (max-width: 590px) {
+  .profile-content__info-data-user {
+    grid-template-columns: 1fr !important;
+  }
+}
 @media (max-width: 560px) {
   .profile .fixed-size {
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
-
-  .profile-content__info-data-user-menu {
-    margin-top: 8px;
+  .profile .fixed-size .profile-content__info {
+    margin: 0 30px;
   }
 
   .profile-content__statistics-overlay {
     display: block !important;
+  }
+
+  .table-games__data-item-buttons-play-caption {
+    display: none !important;
   }
 
   .modal-dialog__header {
@@ -1041,11 +1099,9 @@ body {
   }
 }
 @media (max-width: 520px) {
-  .profile-content {
+  .profile-content__statistics-items {
+    padding-left: 30px;
     justify-content: flex-start !important;
-  }
-  .profile-content .profile-content__info-data-user-results {
-    margin-right: 0 !important;
   }
 }
 @media (max-width: 450px) {
