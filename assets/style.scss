@@ -638,7 +638,24 @@
     &::-webkit-scrollbar {
       width: 0;
     }
-
+    .gold-player {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-image: url("images/gold-winner.png");
+      filter: drop-shadow(10px 10px 50px rgba(255, 175, 0, 0.4));
+      background-size: 100%;
+      margin: 0 auto;
+    }
+    .silver-player {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-image: url("images/silver-winner.png");
+      filter: drop-shadow(0px 5px 40px rgba(243, 80, 47, 0.35));
+      background-size: 100%;
+      margin: 0 auto;
+    }
     .modal-dialog__close {
       position: absolute;
       top: 30px;
@@ -665,25 +682,7 @@
       gap: 15px;
       align-items: center;
       justify-content: space-between;
-      .gold-winner {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-image: url("images/gold-winner.png");
-        filter: drop-shadow(10px 10px 50px rgba(255, 175, 0, 0.4));
-        background-size: 100%;
-        margin: 0 auto;
-      }
-      .silver-winner {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-image: url("images/silver-winner.png");
-        filter: drop-shadow(0px 5px 40px rgba(243, 80, 47, 0.35));
-        background-size: 100%;
-        margin: 0 auto;
-      }
-      .modal-dialog__header-info {
+      .modal-dialog__header-info{
         padding: 30px 0;
         .modal-dialog__header-info-item {
           display: flex;
@@ -706,17 +705,9 @@
         }
       }
 
-      .modal-dialog__header-avatar {
-        justify-self: center;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        border: 5px solid #515151;
-        box-sizing: border-box;
+      .modal-dialog__header-avatar{
         filter: drop-shadow(-30px 20px 100px rgba(255, 255, 255, 0.1));
         background-image: url("images/modal-avatar.png");
-        background-size: cover;
-        background-position: center;
       }
 
       .modal-dialog__header-pending {
@@ -788,6 +779,17 @@
           text-align: center;
         }
       }
+    }
+
+    .modal-avatar {
+      justify-self: center;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 5px solid #515151;
+      box-sizing: border-box;
+      background-size: cover;
+      background-position: center;
     }
 
     .modal-dialog__content {
@@ -895,6 +897,158 @@
         }
       }
     }
+    .modal-dialog__separator {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: calc(50% - 5px);
+    }
+    .modal-dialog__player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 70px;
+      .modal-dialog__player-avatar {
+        position: relative;
+        margin-bottom: 30px;
+        z-index: 6;
+      }
+      .modal-dialog__player-side {
+        position: absolute;
+        bottom: -20px;
+        width: 60px;
+        height: 60px;
+      }
+      .modal-dialog__player-info {
+        padding: 30px 0;
+        .modal-dialog__player-info-item {
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+          &:first-child {
+            margin-top: 0;
+          }
+          .modal-dialog__player-info-item-icon {
+            width: 22px;
+            height: 20px;
+            background-size: cover;
+          }
+          .modal-dialog__header-info-item-caption {
+            font-weight: normal;
+          }
+        }
+      }
+      .modal-dialog__player-objects {
+        position: relative;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 30px 30px 0 0;
+        flex-grow: 1;
+        overflow: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+        .modal-dialog__player-objects-list {
+          display: grid;
+          grid-template-rows: repeat(auto-fill, minmax(80px, auto));
+          gap: 15px;
+          .modal-dialog__player-objects-list-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            .modal-dialog__player-objects-list-item-img {
+              margin-right: 15px;
+              width: 40px;
+              height: 40px;
+              background-image: url("images/modal-object.png");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 100%;
+            }
+            .modal-dialog__player-objects-list-item-caption {
+              margin-bottom: 5px;
+              font-weight: 900;
+              font-size: 20px;
+              line-height: 23px;
+              color: rgba(255, 255, 255, 0.7);
+            }
+            .modal-dialog__player-objects-list-item-cost {
+              display: flex;
+              align-items: center;
+              .modal-dialog__player-objects-list-item-cost-icon {
+                width: 22px;
+                height: 20px;
+                background-size: cover;
+                margin-right: 7px;
+              }
+              .modal-dialog__player-objects-list-item-cost-caption {
+                font-weight: normal;
+                color: rgba(255, 255, 255, 0.7);
+              }
+            }
+          }
+        }
+      }
+    }
+    .modal-dialog__circle {
+      position: absolute;
+      top: 20%;
+      left: calc(50% - 45px);
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      z-index: 6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-dialog__background-yellow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(50% 50% at 0% 50%, #FFAF00 0%, rgba(255, 175, 0, 0.427083) 57.29%, rgba(255, 175, 0, 0) 100%);
+      opacity: 0.4;
+    }
+    .modal-dialog__background-red {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(50% 50% at 0% 50%, #FF1700 0%, rgba(251, 32, 10, 0.786458) 57.81%, rgba(251, 32, 10, 0.786458) 57.82%, rgba(235, 64, 47, 0) 100%);
+      opacity: 0.2;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .first-player {
+      .modal-dialog__player-avatar {
+        background-image: url("images/modal-avatar.png");
+      }
+      .modal-dialog__player-side {
+        left: -40px;
+      }
+      .modal-dialog__player-info-item-icon {
+        margin-right: 20px;
+      }
+    }
+    .second-player {
+      .modal-dialog__player-avatar {
+        background-image: url("images/pending-avatar.png");
+      }
+      .modal-dialog__player-side {
+        right: -40px;
+      }
+      .modal-dialog__player-info-item {
+        justify-content: flex-end;
+      }
+      .modal-dialog__player-info-item-icon {
+        margin-left: 20px;
+      }
+    }
 
     .icon-player {
       background-image: url("images/icons/icon-player.svg");
@@ -933,7 +1087,7 @@
 }
 
 .create-game {
-  //display: none;
+  display: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
     .modal-dialog__header {
@@ -1035,6 +1189,81 @@
       }
     }
   }
+}
+
+.wait-start {
+  display: none;
+  background: linear-gradient(180deg, rgba(235, 148, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
+  .modal-dialog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    max-height: 900px;
+    .modal-dialog__circle {
+      background: radial-gradient(50% 50% at 50% 50%, #D3862C 0%, #583711 100%);
+      box-shadow: 0 10px 60px rgba(255, 122, 0, 0.4);
+      .modal-dialog__circle-caption {
+        position: relative;
+        top: 4px;
+        font-weight: 900;
+        font-size: 41px;
+        -webkit-text-stroke: 2px #6C441F;
+      }
+    }
+  }
+}
+
+.fight {
+  display: none;
+  background: linear-gradient(180deg, rgba(235, 80, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
+  .modal-dialog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    max-height: 900px;
+    .modal-dialog__circle {
+      background: radial-gradient(50% 50% at 50% 50%, #D3362C 0%, #581111 100%);
+      box-shadow: 0 10px 60px rgba(255, 46, 0, 0.4);
+      .modal-dialog__circle-caption {
+        position: relative;
+        top: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 900;
+        font-size: 41px;
+        span {
+          position: relative;
+          top: -10px;
+          text-transform: uppercase;
+          font-weight: 900;
+          font-size: 18px;
+          line-height: 21px;
+          color: #E26767;
+          -webkit-text-stroke: 1.5px #6C1F1F;
+        }
+        -webkit-text-stroke: 2px #6C1F1F;
+      }
+    }
+  }
+}
+
+.finish-game {
+  //display: none;
+  .modal-dialog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    max-height: 900px;
+  }
+}
+
+.gold-winner__back {
+  background: linear-gradient(180deg, rgba(255, 175, 0, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
+}
+
+.silver-winner__back {
+  background: linear-gradient(180deg, rgba(243, 80, 47, 0.245) 0%, rgba(40, 15, 12, 0) 100%);
 }
 
 @keyframes counter {
