@@ -625,12 +625,12 @@
   justify-content: center;
   .modal-dialog {
     position: relative;
-    width: 70%;
+    width: 75%;
     max-width: 800px;
     height: 95%;
     max-height: 1000px;
     display: grid;
-    grid-template-rows: auto minmax(200px, auto) 145px;
+    grid-template-rows: auto minmax(200px, auto);
     background: url("images/modal-back.png") 100%, linear-gradient(147.38deg, #121212 0%, #1D1D1D 0.01%, #0D0D0D 30.73%, #0D0D0D 50.52%, #0D0D0D 68.75%, #1D1D1D 100%);
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -795,7 +795,8 @@
     .modal-dialog__content {
       padding: 30px 65px 65px 65px;
       display: grid;
-      grid-template-rows: 50px auto;
+      grid-template-rows: repeat(2, auto);
+      gap: 10px;
       background: radial-gradient(50% 50% at 0% 50%, rgba(235, 64, 47, 0.4) 0%, rgba(235, 64, 47, 0) 100%) left, radial-gradient(50% 50% at 100% 50%, rgba(242, 242, 242, 0.2) 0%, rgba(242, 242, 242, 0) 100%) right;
       .modal-dialog__content-title {
         display: flex;
@@ -832,7 +833,6 @@
 
           .modal-dialog__content-objects-list-item {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             padding: 15px 30px;
             background: rgba(255, 255, 255, 0.05);
@@ -898,20 +898,23 @@
       }
     }
     .modal-dialog__separator {
-      height: 100%;
+      width: 5px;
+      height: calc(100% + 30px);
       position: absolute;
-      top: 0;
+      top: -30px;
       left: calc(50% - 5px);
+      background-image: url("images/icons/modal-separator.svg");
     }
     .modal-dialog__player {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 70px;
+      padding: 70px 30px 0 30px;
       .modal-dialog__player-avatar {
         position: relative;
         margin-bottom: 30px;
         z-index: 6;
+        min-height: 250px;
       }
       .modal-dialog__player-side {
         position: absolute;
@@ -959,6 +962,7 @@
             padding: 15px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
+            overflow: hidden;
             .modal-dialog__player-objects-list-item-img {
               margin-right: 15px;
               width: 40px;
@@ -969,6 +973,7 @@
               background-size: 100%;
             }
             .modal-dialog__player-objects-list-item-caption {
+              white-space: normal;
               margin-bottom: 5px;
               font-weight: 900;
               font-size: 20px;
@@ -995,8 +1000,8 @@
     }
     .modal-dialog__circle {
       position: absolute;
-      top: 20%;
-      left: calc(50% - 45px);
+      top: 172px;
+      left: calc(50% - 47px);
       width: 90px;
       height: 90px;
       border-radius: 50%;
@@ -1090,6 +1095,7 @@
   display: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
+    grid-template-rows: auto minmax(200px, auto) 145px;
     .modal-dialog__header {
       display: flex;
       flex-direction: column;
@@ -1109,6 +1115,15 @@
         .modal-dialog__header-sides-side {
           width: 100px;
           height: 100px;
+          cursor: pointer;
+          @include transition(all 0.3s ease);
+          &:hover {
+            @include transform(scale(1.1))
+          }
+          &:active {
+            position: relative;
+            top: 1px;
+          }
         }
         .modal-dialog__header-sides-caption {
           margin: 0 40px;
@@ -1172,11 +1187,34 @@
         .modal-dialog__footer-btn-item {
           position: absolute;
           top: -70px;
+          left: calc(50% - 50px);
           width: 100px;
           height: 100px;
           margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border-radius: 50%;
-          background: url("images/icons/icon-create-game.svg") no-repeat 36px center, radial-gradient(50% 50% at 50% 50%, #D3402C 0%, #842525 100%);
+          background: radial-gradient(50% 50% at 50% 50%, #D3402C 0%, #842525 100%);
+          cursor: pointer;
+          @include transition(all 0.3s ease);
+          &:hover {
+            @include transform(scale(1.1))
+          }
+          &:active {
+            top: -65px;
+          }
+          .modal-dialog__footer-btn-item-icon {
+            position: relative;
+            top: 3px;
+            left: 2px;
+            width: 30px;
+            height: 36px;
+            background-image: url("images/icons/icon-create-game.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
         }
         .modal-dialog__footer-btn-caption {
           margin-top: 50px;
@@ -1249,7 +1287,7 @@
 }
 
 .finish-game {
-  //display: none;
+  display: none;
   .modal-dialog {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1303,7 +1341,66 @@
   }
 }
 
-@media (max-height: 670px) {
+@media (max-height: 945px) and (min-width: 700px) {
+  .modal-dialog__player {
+    padding-top: 30px !important;
+  }
+  .modal-dialog__player-avatar {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .first-player {
+    .modal-dialog__player-side {
+      bottom: -30px !important;
+      left: -45px;
+    }
+  }
+  .second-player {
+    .modal-dialog__player-side {
+      bottom: -30px !important;
+      right: -45px;
+    }
+  }
+  .modal-dialog__circle {
+    top: 15% !important;
+  }
+}
+
+@media (max-height: 850px) and (min-width: 700px) {
+  .modal-dialog__player-avatar {
+    width: 150px !important;
+    height: 150px !important;
+    min-height: 150px !important;
+    margin-bottom: 15px !important;
+  }
+  .first-player {
+    .modal-dialog__player-side {
+      width: 50px !important;
+      height: 50px !important;
+      bottom: -30px !important;
+      left: -55px;
+    }
+  }
+  .second-player {
+    .modal-dialog__player-side {
+      width: 50px !important;
+      height: 50px !important;
+      bottom: -30px !important;
+      right: -55px;
+    }
+  }
+  .modal-dialog__circle {
+    top: 10% !important;
+  }
+}
+
+@media (max-height: 796px) and (min-width: 700px) {
+  .modal-dialog__player-info {
+    padding: 20px 0 !important;
+  }
+}
+
+@media (max-height: 670px) and (min-width: 700px) {
   .modal-dialog__header {
     padding: 20px !important;
   }
@@ -1397,6 +1494,9 @@
   .mobile-item {
     display: block !important;
   }
+  .modal-dialog {
+    width: 90% !important;
+  }
   .modal-dialog__header {
     padding: 30px !important;
     .modal-dialog__header-avatar {
@@ -1406,17 +1506,24 @@
   }
   .modal-dialog__content-objects-list-item {
     .modal-dialog__content-objects-list-item-caption {
-      text-align: right;
-      flex-grow: 1;
       font-size: 18px !important;
     }
+  }
+  .modal-dialog__player-avatar {
+    width: 200px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+  }
+}
+
+@media (max-width: 854px) {
+  .modal-dialog__header-condition {
+    width: 70% !important;
   }
 }
 
 @media (max-width: 768px) {
   .modal-dialog {
-    width: 90% !important;
-    grid-template-rows: auto minmax(200px, auto) !important;
     .modal-dialog__close {
       top: 15px !important;
       right: 15px !important;
@@ -1431,9 +1538,162 @@
   }
   .modal-dialog__content-objects-list-item {
     padding: 15px !important;
+  }
+  .modal-dialog__footer {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .create-game .modal-dialog {
+    grid-template-rows: auto minmax(200px, auto) 120px !important;
+  }
+  .modal-dialog__content {
+    padding-top: 0 !important;
+  }
+  .modal-dialog__content-objects-list-item {
+    display: grid !important;
+    grid-template-columns: 20px 50px auto;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    .modal-dialog__content-objects-list-item-checked {
+      margin-right: 0 !important;
+    }
+    .modal-dialog__content-objects-list-item-img {
+      margin-right: 0 !important;
+    }
+    .modal-dialog__content-objects-list-item-cost {
+      grid-column-start: 3;
+    }
     .modal-dialog__content-objects-list-item-caption {
-      text-align: left;
-      order: 1;
+      grid-row-start: 2;
+      grid-column: span 3;
+      flex-grow: 1;
+    }
+  }
+  .modal-dialog__header-condition {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+  }
+  .modal-dialog__header-sides-side {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .modal-dialog__header-sides-caption {
+    margin: 0 20px !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+  .modal-dialog__footer-description {
+    display: none;
+  }
+}
+
+@media (max-width: 660px) {
+  .wait-start, .fight, .finish-game {
+    .modal-dialog {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr) !important;
+      grid-template-columns: 100% !important;
+      gap: 40px;
+      .modal-dialog__separator {
+        height: 3px;
+        width: 100%;
+        top: calc(50% - 3px);
+        left: 0;
+        background-image: url("images/icons/mobile-modal-separator.svg");
+      }
+      .modal-dialog__player {
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+        padding: 0;
+        .modal-dialog__player-avatar {
+          width: 120px !important;
+          height: 120px !important;
+          margin-right: 15px;
+          margin-bottom: 0;
+          min-height: 120px !important;
+          border-width: 3px !important;
+        }
+        .modal-dialog__player-side {
+          bottom: 0;
+          right: 0 !important;
+          left: 80% !important;
+          width: 40px;
+          height: 40px;
+        }
+        .modal-dialog__player-objects {
+          grid-column: span 2;
+          padding: 10px;
+          border-radius: 0;
+          overflow-x: auto;
+          scrollbar-width: none;
+          &::-webkit-scrollbar {
+            height: 0;
+          }
+          .modal-dialog__player-objects-list {
+            display: flex;
+            gap: 10px;
+            .modal-dialog__player-objects-list-item {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              min-width: 140px;
+              align-items: center;
+              padding: 10px;
+              overflow: hidden;
+              .modal-dialog__player-objects-list-item-img {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                margin-right: 0;
+              }
+              .modal-dialog__player-objects-list-item-caption {
+                width: 70%;
+                font-size: 14px !important;
+                line-height: 18px;
+              }
+            }
+          }
+        }
+      }
+      .modal-dialog__circle {
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        width: 60px;
+        height: 60px;
+      }
+      .second-player {
+        .modal-dialog__player-info-item {
+          justify-content: flex-start;
+        }
+        .modal-dialog__player-info-item-icon {
+          order: -1;
+          margin-right: 20px;
+          margin-left: 0;
+        }
+        .modal-dialog__player-objects {
+          order: -1;
+        }
+      }
+    }
+  }
+  .fight {
+    .modal-dialog__circle-caption {
+      font-size: 30px !important;
+      span {
+        font-size: 16px !important;
+        line-height: 18px !important;
+      }
+    }
+  }
+  .wait-start {
+    .modal-dialog__circle-caption {
+      top: 0 !important;
+      font-size: 30px !important;
     }
   }
 }
@@ -1441,6 +1701,12 @@
 @media (max-width: 590px) {
   .profile-content__info-data-user {
     grid-template-columns: 1fr !important;
+  }
+  .modal-dialog__player-objects-list-item-cost-caption {
+    font-size: 12px !important;
+  }
+  .modal-dialog__header-condition {
+    width: 90% !important;
   }
 }
 
@@ -1464,21 +1730,36 @@
     grid-template-rows: repeat(2, auto) ;
     grid-template-columns: repeat(2, 1fr) !important;
     row-gap: 16px;
+    padding-bottom: 0 !important;
+    .modal-dialog__header-avatar {
+      width: 100px !important;
+      height: 100px !important;
+      border-width: 3px !important;
+    }
     .modal-dialog__header-info {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      order: 1;
-      grid-column: span 2;
+      position: relative;
+      top: -37px;
+      padding: 0 !important;
+      grid-row-start: 2;
+      grid-column-start: 1;
+      z-index: 6;
       .modal-dialog__header-info-item {
         margin-top: 8px !important;
+        &:first-child {
+          width: 35px !important;
+          height: 35px !important;
+        }
         .modal-dialog__header-info-item-caption {
           font-size: 14px !important;
         }
       }
     }
     .modal-dialog__header-pending {
+      align-self: flex-start;
+      grid-row: span 2;
+      .modal-dialog__header-pending-caption {
+        width: 100% !important;
+      }
       .modal-dialog__header-pending-placeholder {
         width: 80px !important;
         height: 80px !important;
@@ -1487,7 +1768,23 @@
     }
   }
   .modal-dialog__content {
-    padding: 30px !important;
+    padding: 0 30px 40px 30px !important;
+  }
+  .modal-dialog__footer {
+    margin: 0 30px !important;
+    .modal-dialog__footer-btn-item {
+      top: -50px !important;
+      left: calc(50% - 35px) !important;
+      width: 70px !important;
+      height: 70px !important;
+      .modal-dialog__footer-btn-item-icon {
+        width: 25px !important;
+        height: 31px !important;
+      }
+    }
+    .modal-dialog__footer-btn-caption {
+      margin-top: 30px !important;
+    }
   }
 }
 
@@ -1502,27 +1799,38 @@
   .table-games__data {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
   }
+  .modal-dialog__footer-number-icon {
+    margin-bottom: 6px !important;
+  }
+  .modal-dialog__footer-number-caption {
+    font-size: 18px !important;
+  }
+  .modal-dialog__footer-btn-caption {
+    width: 100px !important;
+  }
   .modal-dialog__content-title-caption {
     font-size: 14px !important;
   }
-}
-
-@media (max-width: 395px) {
-  .modal-dialog__content-objects-list-item {
-    .modal-dialog__content-objects-list-item-caption {
-      margin-top: 8px;
-    }
-    .modal-dialog__content-objects-list-item-cost {
-      order: 2;
-      margin-top: 8px !important;
-      justify-content: flex-start !important;
-    }
+  .modal-dialog__player-info-item-icon {
+    width: 20px !important;
+    height: 18px !important;
+    margin-right: 10px !important;
+  }
+  .modal-dialog__player-info-item-caption {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 380px) {
   .mobile-hidden {
     display: none;
+  }
+  .modal-dialog__header-sides-side {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .modal-dialog__content-objects-list-item-cost-caption {
+    font-size: 12px !important;
   }
 }
 
@@ -1561,6 +1869,11 @@
   .table-games__data-item-buttons-play {
     margin-left: 8px !important;
   }
+  .modal-dialog__content-objects-list-item-cost {
+    grid-row-start: 3;
+    grid-column-start: 1 !important;
+    grid-column: span 3 !important;
+  }
 }
 
 @media (max-width: 340px) {
@@ -1572,11 +1885,44 @@
     column-gap: 0 !important;
     row-gap: 8px !important;
   }
+  .modal-dialog__close {
+    width: 15px !important;
+    height: 15px !important;
+    background-size: cover;
+  }
   .modal-dialog__header {
     padding: 30px 15px 0 15px !important;
-    .modal-dialog__header-avatar {
-      width: 100px !important;
-      height: 100px !important;
+    .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption {
+      font-size: 12px !important;
+    }
+    .modal-dialog__header-pending-caption {
+      font-size: 14px !important;
+    }
+  }
+  .modal-dialog__footer-number-icon {
+    width: 28px !important;
+    height: 25px !important;
+  }
+  .modal-dialog__footer-number-caption {
+    font-size: 14px !important;
+  }
+  .modal-dialog__content-title-caption {
+    font-size: 12px !important;
+  }
+  .wait-start, .fight, .finish-game {
+    .modal-dialog {
+      .modal-dialog__player {
+        .modal-dialog__player-avatar {
+          width: 100px !important;
+          height: 100px !important;
+          margin-right: 10px !important;
+          min-height: 100px !important;
+        }
+        .modal-dialog__player-side {
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
     }
   }
 }
@@ -1624,9 +1970,29 @@
       }
     }
   }
-  .modal-dialog__close {
-    width: 15px !important;
-    height: 15px !important;
-    background-size: cover;
+  .modal-dialog__header-condition {
+    width: auto !important;
+    font-size: 14px !important;
+  }
+  .modal-dialog__header-sides-caption {
+    margin: 0 10px !important;
+  }
+  .modal-dialog__footer-number-caption {
+    font-size: 12px !important;
+  }
+  .modal-dialog__content-title-caption {
+    font-size: 10px !important;
+  }
+  .wait-start, .fight, .finish-game {
+    .modal-dialog {
+      .modal-dialog__player {
+        .modal-dialog__player-avatar {
+          width: 80px !important;
+          height: 80px !important;
+          margin-right: 10px !important;
+          min-height: 80px !important;
+        }
+      }
+    }
   }
 }
