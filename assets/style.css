@@ -110,16 +110,6 @@ body {
   margin-top: 38px;
   overflow: hidden;
 }
-.profile .profile-content .profile-content__statistics .profile-content__statistics-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
-  width: 120px;
-  height: 131px;
-  background: linear-gradient(90deg, #0C0C0C 0%, rgba(15, 15, 15, 0) 100%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-}
 .profile .profile-content .profile-content__statistics .profile-content__statistics-items {
   display: grid;
   grid-template-rows: 131px;
@@ -299,10 +289,10 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #232323;
-  -o-animation: mask-left 121s steps(1, end) forwards;
-  -moz-animation: mask-left 121s steps(1, end) forwards;
-  -webkit-animation: mask-left 121s steps(1, end) forwards;
-  animation: mask-left 121s steps(1, end) forwards;
+  -o-animation: mask-left 120s steps(1, end) forwards;
+  -moz-animation: mask-left 120s steps(1, end) forwards;
+  -webkit-animation: mask-left 120s steps(1, end) forwards;
+  animation: mask-left 120s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer:after {
   content: "";
@@ -313,10 +303,10 @@ body {
   height: 100%;
   z-index: 3;
   background-color: #F3502F;
-  -o-animation: mask-right 121s steps(1, end) forwards;
-  -moz-animation: mask-right 121s steps(1, end) forwards;
-  -webkit-animation: mask-right 121s steps(1, end) forwards;
-  animation: mask-right 121s steps(1, end) forwards;
+  -o-animation: mask-right 120s steps(1, end) forwards;
+  -moz-animation: mask-right 120s steps(1, end) forwards;
+  -webkit-animation: mask-right 120s steps(1, end) forwards;
+  animation: mask-right 120s steps(1, end) forwards;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body {
   position: relative;
@@ -329,12 +319,6 @@ body {
   z-index: 4;
 }
 .table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter {
-  -o-animation: counter 121s steps(120, end) forwards;
-  -moz-animation: counter 121s steps(120, end) forwards;
-  -webkit-animation: counter 121s steps(120, end) forwards;
-  animation: counter 121s steps(120, end) forwards;
-}
-.table-games .table-games__data .table-games__data-item .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter div {
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -350,10 +334,10 @@ body {
   height: 100%;
   border-radius: 50%;
   background-color: #232323;
-  -o-animation: line 121s linear forwards;
-  -moz-animation: line 121s linear forwards;
-  -webkit-animation: line 121s linear forwards;
-  animation: line 121s linear forwards;
+  -o-animation: line 120s linear forwards;
+  -moz-animation: line 120s linear forwards;
+  -webkit-animation: line 120s linear forwards;
+  animation: line 120s linear forwards;
   overflow: hidden;
   z-index: 2;
 }
@@ -1318,15 +1302,9 @@ body {
   background: linear-gradient(180deg, rgba(243, 80, 47, 0.245) 0%, rgba(40, 15, 12, 0) 100%);
 }
 
-@keyframes counter {
-  100% {
-    transform: translateY(-5040px);
-  }
-}
 @keyframes line {
   100% {
     transform: rotate(-360deg);
-    opacity: 0;
   }
 }
 @keyframes mask-left {
@@ -1447,6 +1425,7 @@ body {
 
   .table-games__title {
     margin-left: 30px;
+    text-align: center;
   }
 
   .table-games__data {
@@ -1717,10 +1696,6 @@ body {
   }
   .profile .fixed-size .profile-content__info {
     margin: 0 30px;
-  }
-
-  .profile-content__statistics-overlay {
-    display: block !important;
   }
 
   .table-games__data-item-buttons-play-caption {

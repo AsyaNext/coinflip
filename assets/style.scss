@@ -68,16 +68,6 @@
       position: relative;
       margin-top: 38px;
       overflow: hidden;
-      .profile-content__statistics-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: none;
-        width: 120px;
-        height: 131px;
-        background: linear-gradient(90deg, #0C0C0C 0%, rgba(15, 15, 15, 0) 100%);
-        transform: matrix(-1, 0, 0, 1, 0, 0);
-      }
       .profile-content__statistics-items {
         display: grid;
         grid-template-rows: 131px;
@@ -264,7 +254,7 @@
           height: 100%;
           z-index: 3;
           background-color: #232323;
-          @include animation( mask-left 121s steps(1, end) forwards);
+          @include animation( mask-left 120s steps(1, end) forwards);
         }
         &:after {
           content: '';
@@ -275,7 +265,7 @@
           height: 100%;
           z-index: 3;
           background-color: #F3502F;
-          @include animation( mask-right 121s steps(1, end) forwards);
+          @include animation( mask-right 120s steps(1, end) forwards);
         }
         .table-games__data-item-timer-body {
           position: relative;
@@ -287,16 +277,12 @@
           text-align: center;
           z-index: 4;
           .table-games__data-item-timer-body-counter {
-            @include animation(counter 121s steps(120, end) forwards);
-            div {
-              font-size: 20px;
-              display: flex;
-              flex-direction: column;
-              align-content: center;
-              justify-content: center;
-              height: 42px;
-            }
-
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            height: 42px;
           }
         }
         .table-games__data-item-timer-line {
@@ -307,7 +293,7 @@
           height: 100%;
           border-radius: 50%;
           background-color: #232323;
-          @include animation( line 121s linear forwards);
+          @include animation( line 120s linear forwards);
           overflow: hidden;
           z-index: 2;
           &:after {
@@ -1304,20 +1290,11 @@
   background: linear-gradient(180deg, rgba(243, 80, 47, 0.245) 0%, rgba(40, 15, 12, 0) 100%);
 }
 
-@keyframes counter {
-  0% {
-  }
-  100% {
-    transform: translateY(-5040px);
-  }
-}
-
 @keyframes line {
   0% {
   }
   100% {
     transform: rotate(-360deg);
-    opacity: 0;
   }
 }
 
@@ -1448,6 +1425,7 @@
   }
   .table-games__title {
     margin-left: 30px;
+    text-align: center;
   }
   .table-games__data {
     display: grid;
@@ -1719,9 +1697,6 @@
         margin: 0 30px;
       }
     }
-  }
-  .profile-content__statistics-overlay {
-    display: block !important;
   }
   .table-games__data-item-buttons-play-caption {
     display: none !important;
