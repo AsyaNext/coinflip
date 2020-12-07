@@ -600,36 +600,29 @@
   height: 362px;
 }
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   z-index: 5;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   .modal-dialog {
-    position: relative;
+    position: absolute;
     width: 75%;
     max-width: 800px;
-    height: 95%;
-    max-height: 1000px;
-    display: grid;
-    grid-template-rows: auto minmax(200px, auto);
+    min-height: 500px;
     background: url("images/modal-back.png") 100%, linear-gradient(147.38deg, #121212 0%, #1D1D1D 0.01%, #0D0D0D 30.73%, #0D0D0D 50.52%, #0D0D0D 68.75%, #1D1D1D 100%);
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
+    box-sizing: content-box;
     border-radius: 10px;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
     .gold-player {
       width: 60px;
       height: 60px;
       border-radius: 50%;
       background-image: url("images/gold-winner.png");
-      filter: drop-shadow(10px 10px 50px rgba(255, 175, 0, 0.4));
+      filter: drop-shadow(10px 10px 25px rgba(255, 175, 0, 0.4));
       background-size: 100%;
       margin: 0 auto;
     }
@@ -638,7 +631,7 @@
       height: 60px;
       border-radius: 50%;
       background-image: url("images/silver-winner.png");
-      filter: drop-shadow(0px 5px 40px rgba(243, 80, 47, 0.35));
+      filter: drop-shadow(10px 10px 25px rgba(235, 64, 47, 0.4));
       background-size: 100%;
       margin: 0 auto;
     }
@@ -650,12 +643,10 @@
       height: 25px;
       background-image: url("images/icons/icon-close.svg");
       cursor: pointer;
-
+      @include transition(all 0.3s ease);
       &:hover {
-        @include transform(scale(1.1));
-        filter: brightness(100);
+        @include transform(scale(1.2));
       }
-
       &:active {
         top: 31px;
       }
@@ -669,11 +660,10 @@
       align-items: center;
       justify-content: space-between;
       .modal-dialog__header-info{
-        padding: 30px 0;
         .modal-dialog__header-info-item {
           display: flex;
           align-items: center;
-          margin-top: 25px;
+          margin-top: 15px;
 
           &:first-child {
             margin-top: 0;
@@ -681,8 +671,9 @@
 
           .modal-dialog__header-info-item-icon {
             margin-right: 15px;
-            width: 27px;
-            height: 25px;
+            width: 22px;
+            height: 20px;
+            background-size: cover;
           }
 
           .modal-dialog__header-info-item-caption {
@@ -692,7 +683,7 @@
       }
 
       .modal-dialog__header-avatar{
-        filter: drop-shadow(-30px 20px 100px rgba(255, 255, 255, 0.1));
+        filter: drop-shadow(-30px 20px 50px rgba(255, 255, 255, 0.1));
         background-image: url("images/modal-avatar.png");
       }
 
@@ -718,11 +709,11 @@
             background-repeat: no-repeat;
             .modal-dialog__header-pending-timer {
               position: absolute;
-              left: 33px;
+              left: calc(50% - 17.5px);
               bottom: -20px;
               width: 35px;
-              height: 28px;
-              padding-top: 6px;
+              height: 30px;
+              padding-top: 5px;
               display: flex;
               flex-direction: column;
               justify-content: center;
@@ -731,7 +722,7 @@
               background-color: #323232;
               font-weight: 900;
               font-size: 15px;
-              color: #CCCCCC;
+              text-align: center;
 
               span {
                 position: relative;
@@ -740,7 +731,7 @@
                 font-weight: 900;
                 font-size: 9px;
                 line-height: 10px;
-                color: #999999;
+                color: rgba(255, 255, 255, 0.5);
               }
             }
           }
@@ -753,7 +744,6 @@
           border-radius: 5px;
           box-sizing: content-box;
           font-weight: normal;
-          color: rgba(255, 255, 255, 0.7);
         }
 
         .modal-dialog__header-pending-caption {
@@ -761,7 +751,6 @@
           font-weight: 900;
           font-size: 18px;
           line-height: 22px;
-          color: #CCCCCC;
           text-align: center;
         }
       }
@@ -780,43 +769,35 @@
 
     .modal-dialog__content {
       padding: 30px 65px 65px 65px;
-      display: grid;
-      grid-template-rows: repeat(2, auto);
-      gap: 10px;
+      display: flex;
+      flex-direction: column;
       background: radial-gradient(50% 50% at 0% 50%, rgba(235, 64, 47, 0.4) 0%, rgba(235, 64, 47, 0) 100%) left, radial-gradient(50% 50% at 100% 50%, rgba(242, 242, 242, 0.2) 0%, rgba(242, 242, 242, 0) 100%) right;
       .modal-dialog__content-title {
         display: flex;
-
+        margin-bottom: 15px;
         .modal-dialog__content-title-icon {
           margin-right: 15px;
           width: 27px;
           height: 25px;
         }
-
         .modal-dialog__content-title-caption {
           font-weight: 900;
           font-size: 18px;
           line-height: 25px;
-          color: #707070;
         }
       }
 
       .modal-dialog__content-objects {
         padding: 20px;
         height: 100%;
-        border: 5px dashed #515151;
+        border: 5px solid rgba(255, 255, 255, 0);
+        border-image: url("images/border-table.png") 5 round;
         box-sizing: border-box;
         border-radius: 15px;
-        overflow: auto;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-          width: 0;
-        }
         .modal-dialog__content-objects-list {
           display: grid;
           grid-template-rows: repeat(auto-fill, minmax(80px, auto));
           gap: 15px;
-
           .modal-dialog__content-objects-list-item {
             display: flex;
             align-items: center;
@@ -837,14 +818,12 @@
               height: 20px;
               border: 2px solid #515151;
               border-radius: 50%;
-              box-sizing: border-box;
-
               .modal-dialog__content-objects-list-item-checked-icon {
-                width: 100%;
-                height: 100%;
-                margin: auto;
+                margin: 1px;
+                width: 18px;
+                height: 18px;
                 background-image: url("images/icons/icon-check.svg");
-                background-size: cover;
+                background-size: 100%;
               }
             }
 
@@ -855,7 +834,7 @@
               background-image: url("images/modal-object.png");
               background-repeat: no-repeat;
               background-position: center;
-              background-size: 100%;
+              background-size: cover;
             }
 
             .modal-dialog__content-objects-list-item-caption {
@@ -870,13 +849,102 @@
 
               .modal-dialog__content-objects-list-item-cost-icon {
                 margin-right: 10px;
-                width: 27px;
-                height: 25px;
+                width: 22px;
+                height: 20px;
+                background-size: cover;
               }
 
               .modal-dialog__content-objects-list-item-cost-caption {
                 font-weight: normal;
                 line-height: 25px;
+              }
+            }
+          }
+        }
+      }
+      .modal-dialog__content-player {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 70px 30px 0 30px;
+        .modal-dialog__content-player-avatar {
+          position: relative;
+          margin-bottom: 30px;
+          z-index: 6;
+          min-height: 250px;
+        }
+        .modal-dialog__content-player-side {
+          position: absolute;
+          bottom: -20px;
+          width: 60px;
+          height: 60px;
+        }
+        .modal-dialog__content-player-info {
+          padding: 30px 0;
+          .modal-dialog__content-player-info-item {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            &:first-child {
+              margin-top: 0;
+            }
+            .modal-dialog__content-player-info-item-icon {
+              width: 22px;
+              height: 20px;
+              background-size: cover;
+            }
+            .modal-dialog__content-player-info-item-caption {
+              font-weight: normal;
+            }
+          }
+        }
+        .modal-dialog__content-player-objects {
+          position: relative;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 30px 30px 0 0;
+          flex-grow: 1;
+          .modal-dialog__content-player-objects-list {
+            display: grid;
+            grid-template-rows: repeat(auto-fill, minmax(80px, auto));
+            gap: 15px;
+            .modal-dialog__content-player-objects-list-item {
+              display: flex;
+              align-items: center;
+              padding: 15px;
+              background: rgba(255, 255, 255, 0.05);
+              border-radius: 15px;
+              overflow: hidden;
+              .modal-dialog__content-player-objects-list-item-img {
+                margin-right: 15px;
+                width: 40px;
+                height: 40px;
+                background-image: url("images/modal-object.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+              }
+              .modal-dialog__content-player-objects-list-item-caption {
+                white-space: normal;
+                margin-bottom: 5px;
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 23px;
+                color: rgba(255, 255, 255, 0.7);
+              }
+              .modal-dialog__content-player-objects-list-item-cost {
+                display: flex;
+                align-items: center;
+                .modal-dialog__content-player-objects-list-item-cost-icon {
+                  width: 22px;
+                  height: 20px;
+                  background-size: cover;
+                  margin-right: 7px;
+                }
+                .modal-dialog__content-player-objects-list-item-cost-caption {
+                  font-weight: normal;
+                  color: rgba(255, 255, 255, 0.7);
+                }
               }
             }
           }
@@ -891,99 +959,6 @@
       left: calc(50% - 5px);
       background-image: url("images/icons/modal-separator.svg");
     }
-    .modal-dialog__player {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 70px 30px 0 30px;
-      .modal-dialog__player-avatar {
-        position: relative;
-        margin-bottom: 30px;
-        z-index: 6;
-        min-height: 250px;
-      }
-      .modal-dialog__player-side {
-        position: absolute;
-        bottom: -20px;
-        width: 60px;
-        height: 60px;
-      }
-      .modal-dialog__player-info {
-        padding: 30px 0;
-        .modal-dialog__player-info-item {
-          display: flex;
-          align-items: center;
-          margin-top: 15px;
-          &:first-child {
-            margin-top: 0;
-          }
-          .modal-dialog__player-info-item-icon {
-            width: 22px;
-            height: 20px;
-            background-size: cover;
-          }
-          .modal-dialog__header-info-item-caption {
-            font-weight: normal;
-          }
-        }
-      }
-      .modal-dialog__player-objects {
-        position: relative;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 30px 30px 0 0;
-        flex-grow: 1;
-        overflow: auto;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-          width: 0;
-        }
-        .modal-dialog__player-objects-list {
-          display: grid;
-          grid-template-rows: repeat(auto-fill, minmax(80px, auto));
-          gap: 15px;
-          .modal-dialog__player-objects-list-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            .modal-dialog__player-objects-list-item-img {
-              margin-right: 15px;
-              width: 40px;
-              height: 40px;
-              background-image: url("images/modal-object.png");
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: 100%;
-            }
-            .modal-dialog__player-objects-list-item-caption {
-              white-space: normal;
-              margin-bottom: 5px;
-              font-weight: 900;
-              font-size: 20px;
-              line-height: 23px;
-              color: rgba(255, 255, 255, 0.7);
-            }
-            .modal-dialog__player-objects-list-item-cost {
-              display: flex;
-              align-items: center;
-              .modal-dialog__player-objects-list-item-cost-icon {
-                width: 22px;
-                height: 20px;
-                background-size: cover;
-                margin-right: 7px;
-              }
-              .modal-dialog__player-objects-list-item-cost-caption {
-                font-weight: normal;
-                color: rgba(255, 255, 255, 0.7);
-              }
-            }
-          }
-        }
-      }
-    }
     .modal-dialog__circle {
       position: absolute;
       top: 172px;
@@ -996,47 +971,49 @@
       justify-content: center;
       align-items: center;
     }
-    .modal-dialog__background-yellow {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(50% 50% at 0% 50%, #FFAF00 0%, rgba(255, 175, 0, 0.427083) 57.29%, rgba(255, 175, 0, 0) 100%);
-      opacity: 0.4;
-    }
-    .modal-dialog__background-red {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(50% 50% at 0% 50%, #FF1700 0%, rgba(251, 32, 10, 0.786458) 57.81%, rgba(251, 32, 10, 0.786458) 57.82%, rgba(235, 64, 47, 0) 100%);
-      opacity: 0.2;
-      transform: matrix(-1, 0, 0, 1, 0, 0);
+    .modal-dialog__shadows {
+      .modal-dialog__shadows-yellow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(50% 50% at 0% 50%, #FFAF00 0%, rgba(255, 175, 0, 0.427083) 57.29%, rgba(255, 175, 0, 0) 100%);
+        opacity: 0.4;
+      }
+      .modal-dialog__shadows-red {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(50% 50% at 0% 50%, #FF1700 0%, rgba(251, 32, 10, 0.786458) 57.81%, rgba(251, 32, 10, 0.786458) 57.82%, rgba(235, 64, 47, 0) 100%);
+        opacity: 0.2;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+      }
     }
     .first-player {
-      .modal-dialog__player-avatar {
+      .modal-dialog__content-player-avatar {
         background-image: url("images/modal-avatar.png");
       }
-      .modal-dialog__player-side {
+      .modal-dialog__content-player-side {
         left: -40px;
       }
-      .modal-dialog__player-info-item-icon {
+      .modal-dialog__content-player-info-item-icon {
         margin-right: 20px;
       }
     }
     .second-player {
-      .modal-dialog__player-avatar {
+      .modal-dialog__content-player-avatar {
         background-image: url("images/pending-avatar.png");
       }
-      .modal-dialog__player-side {
+      .modal-dialog__content-player-side {
         right: -40px;
       }
-      .modal-dialog__player-info-item {
+      .modal-dialog__content-player-info-item {
         justify-content: flex-end;
       }
-      .modal-dialog__player-info-item-icon {
+      .modal-dialog__content-player-info-item-icon {
         margin-left: 20px;
       }
     }
@@ -1081,7 +1058,18 @@
   display: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
-    grid-template-rows: auto minmax(200px, auto) 145px;
+    .gold-player {
+      filter: none;
+      &:hover {
+        filter: drop-shadow(10px 10px 25px rgba(255, 175, 0, 0.4));
+      }
+    }
+    .silver-player {
+      filter: none;
+      &:hover {
+        filter: drop-shadow(10px 10px 25px rgba(235, 64, 47, 0.4));
+      }
+    }
     .modal-dialog__header {
       display: flex;
       flex-direction: column;
@@ -1092,7 +1080,9 @@
         font-weight: normal;
         line-height: 24px;
         text-align: center;
-        color: rgba(255, 255, 255, 0.7);
+        span {
+          font-weight: bold;
+        }
       }
       .modal-dialog__header-sides {
         display: flex;
@@ -1123,6 +1113,7 @@
       }
     }
     .modal-dialog__footer {
+      height: 145px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1199,7 +1190,7 @@
             background-image: url("images/icons/icon-create-game.svg");
             background-repeat: no-repeat;
             background-position: center;
-            background-size: cover;
+            background-size: 100%;
           }
         }
         .modal-dialog__footer-btn-caption {
@@ -1216,13 +1207,16 @@
 }
 
 .wait-start {
-  display: none;
+  //display: none;
   background: linear-gradient(180deg, rgba(235, 148, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-    max-height: 900px;
+    overflow: hidden;
+    .modal-dialog__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 100%;
+      padding: 0;
+    }
     .modal-dialog__circle {
       background: radial-gradient(50% 50% at 50% 50%, #D3862C 0%, #583711 100%);
       box-shadow: 0 10px 60px rgba(255, 122, 0, 0.4);
@@ -1231,6 +1225,7 @@
         top: 4px;
         font-weight: 900;
         font-size: 41px;
+        color: white;
         -webkit-text-stroke: 2px #6C441F;
       }
     }
@@ -1241,10 +1236,13 @@
   display: none;
   background: linear-gradient(180deg, rgba(235, 80, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-    max-height: 900px;
+    overflow: hidden;
+    .modal-dialog__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 100%;
+      padding: 0;
+    }
     .modal-dialog__circle {
       background: radial-gradient(50% 50% at 50% 50%, #D3362C 0%, #581111 100%);
       box-shadow: 0 10px 60px rgba(255, 46, 0, 0.4);
@@ -1256,6 +1254,7 @@
         align-items: center;
         font-weight: 900;
         font-size: 41px;
+        -webkit-text-stroke: 2px #6C1F1F;
         span {
           position: relative;
           top: -10px;
@@ -1264,9 +1263,7 @@
           font-size: 18px;
           line-height: 21px;
           color: #E26767;
-          -webkit-text-stroke: 1.5px #6C1F1F;
         }
-        -webkit-text-stroke: 2px #6C1F1F;
       }
     }
   }
@@ -1275,10 +1272,13 @@
 .finish-game {
   display: none;
   .modal-dialog {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-    max-height: 900px;
+    overflow: hidden;
+    .modal-dialog__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 100%;
+      padding: 0;
+    }
   }
 }
 
@@ -1315,81 +1315,6 @@
   50%,
   100% {
     visibility: hidden;
-  }
-}
-
-@media (max-height: 945px) and (min-width: 700px) {
-  .modal-dialog__player {
-    padding-top: 30px !important;
-  }
-  .modal-dialog__player-avatar {
-    width: 200px !important;
-    height: 200px !important;
-  }
-  .first-player {
-    .modal-dialog__player-side {
-      bottom: -30px !important;
-      left: -45px;
-    }
-  }
-  .second-player {
-    .modal-dialog__player-side {
-      bottom: -30px !important;
-      right: -45px;
-    }
-  }
-  .modal-dialog__circle {
-    top: 15% !important;
-  }
-}
-
-@media (max-height: 850px) and (min-width: 700px) {
-  .modal-dialog__player-avatar {
-    width: 150px !important;
-    height: 150px !important;
-    min-height: 150px !important;
-    margin-bottom: 15px !important;
-  }
-  .first-player {
-    .modal-dialog__player-side {
-      width: 50px !important;
-      height: 50px !important;
-      bottom: -30px !important;
-      left: -55px;
-    }
-  }
-  .second-player {
-    .modal-dialog__player-side {
-      width: 50px !important;
-      height: 50px !important;
-      bottom: -30px !important;
-      right: -55px;
-    }
-  }
-  .modal-dialog__circle {
-    top: 10% !important;
-  }
-}
-
-@media (max-height: 796px) and (min-width: 700px) {
-  .modal-dialog__player-info {
-    padding: 20px 0 !important;
-  }
-}
-
-@media (max-height: 670px) and (min-width: 700px) {
-  .modal-dialog__header {
-    padding: 20px !important;
-  }
-  .modal-dialog__header-condition {
-    margin: 20px auto !important;
-  }
-  .modal-dialog__header-avatar {
-    width: 200px !important;
-    height: 200px !important;
-  }
-  .modal-dialog__content {
-    padding-bottom: 20px !important;
   }
 }
 
