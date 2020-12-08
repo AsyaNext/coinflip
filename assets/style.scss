@@ -1224,7 +1224,7 @@
 }
 
 .wait-start {
-  //display: none;
+  display: none;
   background: linear-gradient(180deg, rgba(235, 148, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
     overflow: hidden;
@@ -1696,9 +1696,6 @@
   .table-games__data-item-buttons-play-caption {
     display: none !important;
   }
-  //.modal-dialog {
-  //  top: 20px;
-  //}
   .pending-game, .selecting-items {
     .modal-dialog__header {
       grid-template-rows: repeat(2, auto);
@@ -1710,7 +1707,6 @@
         height: 100px !important;
         border-width: 3px !important;
       }
-
       .modal-dialog__header-info {
         position: relative;
         top: -37px;
@@ -1718,15 +1714,12 @@
         grid-row-start: 2;
         grid-column-start: 1;
         z-index: 6;
-
         .modal-dialog__header-info-item {
           margin-top: 8px !important;
-
           &:first-child {
             width: 35px !important;
             height: 35px !important;
           }
-
           .modal-dialog__header-info-item-caption {
             font-size: 14px !important;
           }
