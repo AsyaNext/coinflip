@@ -733,7 +733,7 @@ body {
 }
 .modal .modal-dialog .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-icon {
   margin-right: 15px;
-  width: 22px;
+  min-width: 22px;
   height: 20px;
   background-size: cover;
 }
@@ -802,7 +802,7 @@ body {
   font-weight: normal;
 }
 .modal .modal-dialog .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-caption {
-  width: 60%;
+  width: 100px;
   font-weight: 900;
   font-size: 18px;
   line-height: 22px;
@@ -813,10 +813,11 @@ body {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 5px solid #515151;
+  border: 5px solid rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .modal .modal-dialog .modal-dialog__content {
   padding: 30px 65px 65px 65px;
@@ -826,24 +827,26 @@ body {
 }
 .modal .modal-dialog .modal-dialog__content .modal-dialog__content-title {
   display: flex;
+  align-items: center;
   margin-bottom: 15px;
 }
 .modal .modal-dialog .modal-dialog__content .modal-dialog__content-title .modal-dialog__content-title-icon {
   margin-right: 15px;
   width: 27px;
   height: 25px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .modal .modal-dialog .modal-dialog__content .modal-dialog__content-title .modal-dialog__content-title-caption {
   font-weight: 900;
   font-size: 18px;
-  line-height: 25px;
+  line-height: 20px;
 }
 .modal .modal-dialog .modal-dialog__content .modal-dialog__content-objects {
   padding: 20px;
   height: 100%;
   border: 5px solid rgba(255, 255, 255, 0);
-  border-image: url("images/border-table.png") 5 round;
+  border-image: url("images/border-table.png") 5 round round;
   box-sizing: border-box;
   border-radius: 15px;
 }
@@ -1380,12 +1383,12 @@ body {
 }
 @media (max-height: 850px) and (min-width: 660px) {
   .wait-start .modal-dialog, .fight .modal-dialog, .finish-game .modal-dialog {
-    top: 20px;
+    top: 40px;
   }
 }
 @media (max-height: 600px) {
   .wait-start .modal-dialog, .fight .modal-dialog, .finish-game .modal-dialog {
-    top: 20px;
+    top: 40px;
   }
 }
 @media (max-width: 1100px) {
@@ -1493,94 +1496,87 @@ body {
 }
 @media (max-width: 768px) {
   .modal-dialog .modal-dialog__close {
-    top: 15px !important;
-    right: 15px !important;
+    top: 10px !important;
+    right: 10px !important;
   }
 
-  .modal-dialog__header {
-    grid-template-columns: repeat(3, 1fr) !important;
+  .pending-game .modal-dialog__header, .selecting-items .modal-dialog__header {
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 16px;
+    padding: 30px 20px 0 !important;
   }
-  .modal-dialog__header .modal-dialog__header-avatar {
-    width: 150px !important;
-    height: 150px !important;
+  .pending-game .modal-dialog__header .modal-dialog__header-avatar, .selecting-items .modal-dialog__header .modal-dialog__header-avatar {
+    width: 100px !important;
+    height: 100px !important;
+    border-width: 3px !important;
   }
-
-  .modal-dialog__content-objects-list-item {
-    padding: 15px !important;
-  }
-
-  .modal-dialog__footer {
-    padding-right: 20px !important;
-    padding-left: 20px !important;
-  }
-}
-@media (max-width: 700px) {
-  .create-game .modal-dialog {
-    grid-template-rows: auto minmax(200px, auto) 120px !important;
-  }
-
-  .modal-dialog__content {
-    padding-top: 0 !important;
-  }
-
-  .modal-dialog__content-objects-list-item {
-    display: grid !important;
-    grid-template-columns: 20px 50px auto;
-    grid-template-rows: repeat(3, auto);
-    gap: 15px;
-  }
-  .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-checked {
-    margin-right: 0 !important;
-  }
-  .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-img {
-    margin-right: 0 !important;
-  }
-  .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-cost {
-    grid-column-start: 3;
-  }
-  .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-caption {
+  .pending-game .modal-dialog__header .modal-dialog__header-info, .selecting-items .modal-dialog__header .modal-dialog__header-info {
+    position: relative;
+    top: -37px;
+    padding: 0 !important;
     grid-row-start: 2;
-    grid-column: span 3;
-    flex-grow: 1;
+    grid-column-start: 1;
+    z-index: 6;
+    justify-self: center;
   }
-
-  .modal-dialog__header-condition {
-    margin-top: 0 !important;
-    margin-bottom: 15px !important;
+  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item:first-child, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item:first-child {
+    margin-top: 8px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
-
-  .modal-dialog__header-sides-side {
-    width: 70px !important;
-    height: 70px !important;
-  }
-
-  .modal-dialog__header-sides-caption {
-    margin: 0 20px !important;
+  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption {
     font-size: 14px !important;
-    line-height: 18px !important;
   }
-
-  .modal-dialog__footer-description {
-    display: none;
+  .pending-game .modal-dialog__header .modal-dialog__header-pending, .selecting-items .modal-dialog__header .modal-dialog__header-pending {
+    align-self: flex-start;
+    grid-row: span 2;
   }
-}
-@media (max-width: 660px) {
-  .modal-dialog__header {
-    padding: 30px !important;
+  .pending-game .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder, .selecting-items .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder {
+    width: 80px !important;
+    height: 80px !important;
+    background-size: cover;
   }
-
   .pending-game .modal-dialog__content, .selecting-items .modal-dialog__content {
-    padding: 0 30px 40px !important;
+    padding: 0 20px 40px !important;
+  }
+  .pending-game .modal-dialog__content .modal-dialog__content-objects-list-item, .selecting-items .modal-dialog__content .modal-dialog__content-objects-list-item {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .pending-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-img, .selecting-items .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 0 !important;
+  }
+  .pending-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-cost, .selecting-items .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-cost {
+    justify-content: flex-start !important;
+    flex-grow: 0 !important;
+  }
+  .pending-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-caption, .selecting-items .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-caption {
+    width: 70%;
   }
 
-  .create-game .modal-dialog__content {
-    padding: 0 30px 65px !important;
+  .pending-game .modal-dialog__header-pending-caption {
+    margin-top: 34px !important;
   }
 
-  .modal-dialog__footer {
-    margin: 0 30px !important;
+  .selecting-items .modal-dialog__header-pending-caption {
+    margin-top: 15px !important;
   }
 
+  .wait-start .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-yellow, .fight .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-yellow, .finish-game .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-yellow {
+    top: -25%;
+    transform: rotate(90deg);
+  }
+  .wait-start .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-red, .fight .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-red, .finish-game .modal-dialog .modal-dialog__shadows .modal-dialog__shadows-red {
+    top: 25%;
+    transform: rotate(-90deg);
+  }
   .wait-start .modal-dialog .modal-dialog__delimiter .modal-dialog__delimiter-line, .fight .modal-dialog .modal-dialog__delimiter .modal-dialog__delimiter-line, .finish-game .modal-dialog .modal-dialog__delimiter .modal-dialog__delimiter-line {
     height: 3px;
     width: 100%;
@@ -1598,7 +1594,7 @@ body {
     display: grid;
     grid-template-rows: repeat(2, 1fr) !important;
     grid-template-columns: 100% !important;
-    gap: 70px;
+    gap: 80px;
   }
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player {
     display: grid;
@@ -1623,6 +1619,7 @@ body {
     height: 40px;
   }
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects {
+    position: relative;
     height: 80px;
     grid-column: span 2;
     padding: 10px;
@@ -1648,14 +1645,17 @@ body {
   }
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-img, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-img, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-img {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 6px;
+    right: 6px;
     margin-right: 0;
   }
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-caption, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-caption, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-objects .modal-dialog__content-player-objects-list .modal-dialog__content-player-objects-list-item .modal-dialog__content-player-objects-list-item-caption {
     width: 70%;
     font-size: 14px !important;
     line-height: 18px;
+  }
+  .wait-start .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects, .fight .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects, .finish-game .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects {
+    order: -1;
   }
   .wait-start .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-info-item, .fight .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-info-item, .finish-game .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-info-item {
     justify-content: flex-start;
@@ -1664,9 +1664,6 @@ body {
     order: -1;
     margin-right: 20px;
     margin-left: 0;
-  }
-  .wait-start .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects, .fight .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects, .finish-game .modal-dialog .modal-dialog__content .second-player .modal-dialog__content-player-objects {
-    order: -1;
   }
 
   .fight .modal-dialog__delimiter-circle-caption {
@@ -1681,6 +1678,58 @@ body {
     top: 0 !important;
     font-size: 30px !important;
   }
+
+  .modal-dialog__content {
+    padding-top: 0 !important;
+  }
+  .modal-dialog__content .modal-dialog__content-title-caption {
+    font-size: 16px !important;
+  }
+  .modal-dialog__content .modal-dialog__content-objects-list-item {
+    padding: 15px !important;
+  }
+
+  .modal-dialog__footer {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+}
+@media (max-width: 700px) {
+  .create-game .modal-dialog {
+    grid-template-rows: auto minmax(200px, auto) 120px !important;
+  }
+
+  .modal-dialog__header-condition {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+  }
+
+  .modal-dialog__header-sides-side {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .modal-dialog__header-sides-caption {
+    margin: 0 20px !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .modal-dialog__footer-description {
+    display: none;
+  }
+}
+@media (max-width: 660px) {
+  .create-game .modal-dialog__header {
+    padding: 30px 20px !important;
+  }
+  .create-game .modal-dialog__content {
+    padding: 0 20px 65px !important;
+  }
+
+  .modal-dialog__footer {
+    margin: 0 20px !important;
+  }
 }
 @media (max-width: 590px) {
   .profile-content__info-data-user {
@@ -1693,6 +1742,34 @@ body {
 
   .modal-dialog__header-condition {
     width: 90% !important;
+  }
+
+  .create-game .modal-dialog__content .modal-dialog__content-objects-list-item {
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start !important;
+  }
+  .create-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-checked {
+    margin-right: 0 !important;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+  .create-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 0 !important;
+  }
+  .create-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-cost {
+    justify-content: flex-start !important;
+    flex-grow: 0 !important;
+  }
+  .create-game .modal-dialog__content .modal-dialog__content-objects-list-item .modal-dialog__content-objects-list-item-caption {
+    width: 150px;
   }
 }
 @media (max-width: 560px) {
@@ -1707,48 +1784,6 @@ body {
   .table-games__data-item-buttons-play-caption {
     display: none !important;
   }
-
-  .pending-game .modal-dialog__header, .selecting-items .modal-dialog__header {
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(2, 1fr) !important;
-    row-gap: 16px;
-    padding-bottom: 0 !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-avatar, .selecting-items .modal-dialog__header .modal-dialog__header-avatar {
-    width: 100px !important;
-    height: 100px !important;
-    border-width: 3px !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-info, .selecting-items .modal-dialog__header .modal-dialog__header-info {
-    position: relative;
-    top: -37px;
-    padding: 0 !important;
-    grid-row-start: 2;
-    grid-column-start: 1;
-    z-index: 6;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item {
-    margin-top: 8px !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item:first-child, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item:first-child {
-    width: 35px !important;
-    height: 35px !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption {
-    font-size: 14px !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-pending, .selecting-items .modal-dialog__header .modal-dialog__header-pending {
-    align-self: flex-start;
-    grid-row: span 2;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-caption, .selecting-items .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-caption {
-    width: 100% !important;
-  }
-  .pending-game .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder, .selecting-items .modal-dialog__header .modal-dialog__header-pending .modal-dialog__header-pending-placeholder {
-    width: 80px !important;
-    height: 80px !important;
-    background-size: cover;
-  }
 }
 @media (max-width: 520px) {
   .profile-content__statistics-items {
@@ -1759,6 +1794,12 @@ body {
 @media (max-width: 450px) {
   .table-games__data {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  }
+
+  .modal-dialog__close {
+    width: 15px !important;
+    height: 15px !important;
+    background-size: cover;
   }
 
   .modal-dialog__footer-number-icon {
@@ -1774,11 +1815,7 @@ body {
   }
 
   .modal-dialog__content-objects {
-    border-image: url(images/border-table.png) 10 round !important;
-  }
-
-  .modal-dialog__content-title-caption {
-    font-size: 14px !important;
+    border-image: url(images/border-table.png) 5 repeat repeat !important;
   }
 
   .modal-dialog__content-player-info-item-icon {
@@ -1791,6 +1828,11 @@ body {
     font-size: 14px;
   }
 }
+@media (max-width: 416px) {
+  .modal-dialog__header-pending-caption {
+    line-height: 18px !important;
+  }
+}
 @media (max-width: 380px) {
   .mobile-hidden {
     display: none;
@@ -1799,10 +1841,6 @@ body {
   .modal-dialog__header-sides-side {
     width: 50px !important;
     height: 50px !important;
-  }
-
-  .modal-dialog__content-objects-list-item-cost-caption {
-    font-size: 12px !important;
   }
 }
 @media (max-width: 360px) {
@@ -1869,19 +1907,13 @@ body {
     row-gap: 8px !important;
   }
 
-  .modal-dialog__close {
-    width: 15px !important;
-    height: 15px !important;
-    background-size: cover;
-  }
-
-  .modal-dialog__header {
+  .pending-game .modal-dialog__header, .selecting-items .modal-dialog__header {
     padding: 30px 15px !important;
   }
-  .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption {
+  .pending-game .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption, .selecting-items .modal-dialog__header .modal-dialog__header-info .modal-dialog__header-info-item .modal-dialog__header-info-item-caption {
     font-size: 12px !important;
   }
-  .modal-dialog__header .modal-dialog__header-pending-caption {
+  .pending-game .modal-dialog__header .modal-dialog__header-pending-caption, .selecting-items .modal-dialog__header .modal-dialog__header-pending-caption {
     font-size: 14px !important;
   }
 
@@ -1894,16 +1926,6 @@ body {
     font-size: 14px !important;
   }
 
-  .modal-dialog__content-title-caption {
-    font-size: 12px !important;
-  }
-
-  .modal-dialog__content-title-icon {
-    width: 22px !important;
-    height: 20px !important;
-    margin-right: 10px !important;
-  }
-
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-avatar, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-avatar, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-avatar {
     width: 80px;
     height: 80px;
@@ -1913,6 +1935,14 @@ body {
   .wait-start .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-side, .fight .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-side, .finish-game .modal-dialog .modal-dialog__content .modal-dialog__content-player .modal-dialog__content-player-side {
     width: 30px;
     height: 30px;
+  }
+}
+@media (max-width: 319px) {
+  .modal-dialog__shadows .modal-dialog__shadows-yellow {
+    top: -30% !important;
+  }
+  .modal-dialog__shadows .modal-dialog__shadows-red {
+    top: 30% !important;
   }
 }
 @media (max-width: 300px) {
@@ -1970,10 +2000,6 @@ body {
 
   .modal-dialog__footer-number-caption {
     font-size: 12px !important;
-  }
-
-  .modal-dialog__content-title-caption {
-    font-size: 10px !important;
   }
 }
 
