@@ -1227,7 +1227,7 @@
 }
 
 .wait-start {
-  display: none;
+  //display: none;
   background: linear-gradient(180deg, rgba(235, 148, 46, 0.28) 0%, rgba(40, 15, 12, 0) 100%);
   .modal-dialog {
     overflow: hidden;
@@ -1349,10 +1349,10 @@
   }
 }
 
-@media (max-height: 850px) and (min-width: 660px) {
+@media (max-height: 850px) and (min-width: 500px) {
   .wait-start, .fight, .finish-game {
     .modal-dialog {
-      top: 40px;
+      top: 20px;
     }
   }
 }
@@ -1360,7 +1360,7 @@
 @media (max-height: 600px) {
   .wait-start, .fight, .finish-game {
     .modal-dialog {
-      top: 40px;
+      top: 20px;
     }
   }
 }
@@ -1482,6 +1482,9 @@
     .modal-dialog__close {
       top: 10px !important;
       right: 10px !important;
+      width: 15px !important;
+      height: 15px !important;
+      background-size: cover;
     }
   }
   .pending-game, .selecting-items {
@@ -1800,11 +1803,6 @@
 @media (max-width: 450px) {
   .table-games__data {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  }
-  .modal-dialog__close {
-    width: 15px !important;
-    height: 15px !important;
-    background-size: cover;
   }
   .modal-dialog__footer-number-icon {
     margin-bottom: 6px !important;
