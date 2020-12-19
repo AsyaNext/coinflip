@@ -664,7 +664,7 @@ body {
 }
 .modal .modal-dialog {
   position: absolute;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   min-height: 500px;
   background: url("images/modal-back.png") 100%, linear-gradient(147.38deg, #121212 0%, #1D1D1D 0.01%, #0D0D0D 30.73%, #0D0D0D 50.52%, #0D0D0D 68.75%, #1D1D1D 100%);
