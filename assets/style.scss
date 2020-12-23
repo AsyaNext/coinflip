@@ -1814,6 +1814,17 @@
   .profile-content__statistics-items {
     padding-left: 30px;
     justify-content: flex-start !important;
+    .profile-content__statistics-item {
+      position: relative;
+      &:last-child::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -30px;
+        width: 30px;
+        height: 1px;
+      }
+    }
   }
   .create-game {
     .modal-dialog__header {
