@@ -559,13 +559,13 @@ body {
 .last-games .last-games-content .last-games-content__table .table-games__data .silver-winner {
   border: none;
   background-image: url("images/silver-winner.png");
-  background-size: 48px;
+  background-size: cover;
   filter: drop-shadow(0px 5px 40px rgba(243, 80, 47, 0.35));
 }
 .last-games .last-games-content .last-games-content__table .table-games__data .gold-winner {
   border: none;
   background-image: url("images/gold-winner.png");
-  background-size: 48px;
+  background-size: cover;
   filter: drop-shadow(0px 5px 40px rgba(232, 214, 126, 0.35));
 }
 .last-games .last-games-content .last-games-content__table .table-games__data .item-1 .first-player {
@@ -1425,7 +1425,7 @@ body {
     top: 40px;
   }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1130px) {
   .table-games__data-item-buttons-play-caption {
     display: none;
   }
@@ -1894,6 +1894,37 @@ body {
     height: 30px;
   }
 }
+@media (max-width: 400px) {
+  .table-games__data-item-players-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .table-games__data-item-players-avatar .table-games__data-item-players-avatar-badge {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .first-player .table-games__data-item-players-avatar-badge {
+    left: 28px !important;
+  }
+
+  .second-player .table-games__data-item-players-avatar-badge {
+    left: -10px !important;
+  }
+
+  .table-games__data-item-winner, .table-games__data-item-timer {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .table-games__data-item-winner .table-games__data-item-timer-body, .table-games__data-item-timer .table-games__data-item-timer-body {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .table-games__data-item-winner .table-games__data-item-timer-body .table-games__data-item-timer-body-counter, .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter {
+    height: 30px !important;
+    font-size: 14px !important;
+  }
+}
 @media (max-width: 380px) {
   .mobile-hidden {
     display: none;
@@ -1913,42 +1944,8 @@ body {
     font-size: 12px !important;
   }
 
-  .table-games__data-item-players-caption {
-    margin: auto 8px !important;
-  }
-
-  .table-games__data-item-players-avatar {
-    width: 36px !important;
-    height: 36px !important;
-  }
-  .table-games__data-item-players-avatar .table-games__data-item-players-avatar-badge {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .first-player .table-games__data-item-players-avatar-badge {
-    left: 28px !important;
-  }
-
-  .second-player .table-games__data-item-players-avatar-badge {
-    left: -10px !important;
-  }
-
   .table-games__data-item-objects-element {
     margin-right: 8px !important;
-  }
-
-  .table-games__data-item-winner, .table-games__data-item-timer {
-    width: 36px !important;
-    height: 36px !important;
-  }
-  .table-games__data-item-winner .table-games__data-item-timer-body, .table-games__data-item-timer .table-games__data-item-timer-body {
-    width: 30px !important;
-    height: 30px !important;
-  }
-  .table-games__data-item-winner .table-games__data-item-timer-body .table-games__data-item-timer-body-counter, .table-games__data-item-timer .table-games__data-item-timer-body .table-games__data-item-timer-body-counter {
-    height: 30px !important;
-    font-size: 14px !important;
   }
 
   .table-games__data-item-buttons-play {
@@ -1969,6 +1966,10 @@ body {
   .table-games__data-item {
     column-gap: 0 !important;
     row-gap: 8px !important;
+  }
+
+  .table-games__data-item-players-caption {
+    margin: auto 8px !important;
   }
 
   .modal-dialog__footer-number-icon {
@@ -2021,6 +2022,9 @@ body {
   .table-games__data .table-games__data-item {
     grid-template-rows: repeat(4, 1fr) !important;
   }
+  .table-games__data .table-games__data-item .players-item {
+    grid-column: span 2;
+  }
   .table-games__data .table-games__data-item .winner-item {
     text-align: left !important;
     align-items: flex-start !important;
@@ -2030,9 +2034,6 @@ body {
   }
   .table-games__data .table-games__data-item .table-games__data-item-title {
     font-size: 10px !important;
-  }
-  .table-games__data .table-games__data-item .table-games__data-item-buttons {
-    padding-right: 24px;
   }
   .table-games__data .table-games__data-item .table-games__data-item-buttons .table-games__data-item-buttons-watch {
     width: 36px !important;
